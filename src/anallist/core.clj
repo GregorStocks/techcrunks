@@ -1,6 +1,7 @@
-(ns anallist.core)
+(ns anallist.core
+  (:require [tailrecursion.ring-proxy :refer [wrap-proxy]]))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(def app
+  (-> routes
+      (wrap-proxy "/" "http://angel.co/")
+      buttify))

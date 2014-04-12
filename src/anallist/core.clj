@@ -25,7 +25,7 @@
         (string/replace "/techcrunks-" "/techcrunch-")
         (string/replace "-crunks" "-crunch")
         (string/replace "ndreessen" "ndresseen") ;; bwahaha
-        (string/replace "acebook(?![.])" "acebutt")
+        (string/replace #"acebook(?![.])" "acebutt")
         (string/replace "oinbase" "oinbutt")
         (string/replace "opbox" "optrou")
         (string/replace "quare" "hart")

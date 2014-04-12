@@ -30,6 +30,8 @@
         (string/replace "opbox" "optrou")
         (string/replace "quare" "hart")
         (string/replace "isrupt" "iSrUpT")
+        (string/replace "heartbleed" "buttbleed")
+        (string/replace "Heartbleed" "Buttbleed")
         (add-gregor-comment request))))
 
 (defn debuttify-uri [s]
@@ -37,6 +39,8 @@
   (-> s
       (string/replace "uttcoin" "itcoin")
       (string/replace "runk" "runch")
+      (string/replace "buttbleed" "heartbleed")
+      (string/replace "Buttbleed" "Heartbleed")
       (string/replace "acebutt" "acebook")
       (string/replace "oinbutt" "oinbase")
       (string/replace "butt" "cloud")

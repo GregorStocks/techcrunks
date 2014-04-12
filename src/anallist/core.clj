@@ -30,6 +30,7 @@
         (add-gregor-comment request))))
 
 (defn debuttify-uri [s]
+  (println "URI" s)
   (-> s
       (string/replace "uttcoin" "itcoin")
       (string/replace "runk" "runch")

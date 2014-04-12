@@ -3,20 +3,27 @@
             [ring.adapter.jetty :as jetty]
             [clojure.string :as string]))
 
-(defn buttify-string [s]
+(defn add-gregor-comment [body request]
+  (if (or (.endsWith (:uri request) "/")
+          (.endsWith (:uri request) "html"))
+    (str body "<!-- an Gregor Stocks joint http://gregorsto.cx -->")
+    body))
+
+(defn buttify-string [request s]
   (when s
     (-> s
-        (string/replace "cloud" "boot boutt")
-        (string/replace "buttflare" "cloudflare"))))
+        (string/replace "the cloud" "my butt")
+        (string/replace "cloud" "butt")
+        (string/replace "bitcoin" "buttcoin")
+        (add-gregor-comment request))))
 
 (defn buttify [app]
   (fn [request]
-    (println "Got request" (:request-method request))
     (if-not (= :get (:request-method request))
       {:body "Butts"
        :status 404}
       (let [{:keys (body) :as result} (dissoc (app request) :cookies)]
-        (assoc result :body (buttify-string (when body (slurp body))))))))
+        (assoc result :body (buttify-string request (when body (slurp body))))))))
 
 (def app (-> (fn [request] {:body "this is only a mirage" :status 404})
              (wrap-proxy "" "http://techcrunch.com/")

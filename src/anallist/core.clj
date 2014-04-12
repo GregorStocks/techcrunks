@@ -15,8 +15,7 @@
         (string/replace "the cloud" "my butt")
         (string/replace "cloud" "butt")
         (string/replace "bitcoin" "buttcoin")
-        (string/replace "Tech" "Butt")
-        (string/replace "tech" "butt")
+        (string/replace "runch" "runks")
         (string/replace "ndreessen" "ndresseen") ;; bwahaha
         (string/replace "acebook" "acebutt")
         (add-gregor-comment request))))

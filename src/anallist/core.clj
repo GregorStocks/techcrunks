@@ -11,17 +11,15 @@
 
 (defn buttify-string [request s]
   (when s
-    (if (.endsWith (:uri reqest) "logo.svg")
-      (slurp (clojure.java.io/resource "logo.svg"))
-      (-> s
-          (string/replace "the cloud" "my butt")
-          (string/replace "cloud" "butt")
-          (string/replace "bitcoin" "buttcoin")
-          (string/replace "Tech" "Butt")
-          (string/replace "tech" "butt")
-          (string/replace "ndreessen" "ndresseen") ;; bwahaha
-          (string/replace "acebook" "acebutt")
-          (add-gregor-comment request)))))
+    (-> s
+        (string/replace "the cloud" "my butt")
+        (string/replace "cloud" "butt")
+        (string/replace "bitcoin" "buttcoin")
+        (string/replace "Tech" "Butt")
+        (string/replace "tech" "butt")
+        (string/replace "ndreessen" "ndresseen") ;; bwahaha
+        (string/replace "acebook" "acebutt")
+        (add-gregor-comment request))))
 
 (defn buttify [app]
   (fn [request]

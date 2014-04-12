@@ -48,11 +48,8 @@
 
 (defn buttify [app]
   (fn [request]
-    (if-not (= :get (:request-method request))
-      {:body "Butts"
-       :status 404}
-      (let [{:keys (body) :as result} (dissoc (app (update-in request [:uri] debuttify-uri)) :cookies)]
-        (assoc result :body (buttify-string request (when body (slurp body))))))))
+    (let [{:keys (body) :as result} (dissoc (app (update-in request [:uri] debuttify-uri)) :cookies)]
+      (assoc result :body (buttify-string request (when body (slurp body)))))))
 
 (def app (-> (fn [request] {:body "this is only a mirage" :status 404})
              (wrap-proxy "" "http://techcrunch.com/")

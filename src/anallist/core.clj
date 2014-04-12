@@ -29,6 +29,7 @@
         (string/replace "oinbase" "oinbutt")
         (string/replace "opbox" "optrou")
         (string/replace "quare" "hart")
+        (string/replace "isrupt" "iSrUpT")
         (add-gregor-comment request))))
 
 (defn debuttify-uri [s]
@@ -42,6 +43,7 @@
       (string/replace "optrou" "opbox")
       (string/replace "shart" "square")
       (string/replace "Shart" "Square")
+      (string/replace "iSrUpT" "isrupt")
       (string/replace "ndresseen" "ndreessen")))
 
 (defn buttify [app]

@@ -4,10 +4,12 @@
             [clojure.string :as string]))
 
 (defn add-gregor-comment [body request]
-  (if (or (.endsWith (:uri request) "/")
-          (.endsWith (:uri request) "html"))
-    (str body "<!-- an Gregor Stocks joint http://gregorsto.cx -->")
-    body))
+  (cond (or (.endsWith (:uri request) "/")
+            (.endsWith (:uri request) "html"))
+              (str body "<!-- an Gregor Stocks joint http://gregorsto.cx -->")
+        (.endsWith (:uri request) "robots.txt")
+          "UserAgent *\nDisallow: /"
+        :else body))
 
 (defn buttify-string [request s]
   (when s

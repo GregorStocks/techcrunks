@@ -1,7 +1,8 @@
 (ns anallist.core
   (:require [gregorstocks.ring-proxy :refer [wrap-proxy]]
             [ring.adapter.jetty :as jetty]
-            [clojure.string :as string]))
+            [clojure.string :as string]
+            [clj-time.core :as time]))
 
 (defn add-gregor-comment [body request]
   (cond (or (.endsWith (:uri request) "/")
@@ -53,7 +54,7 @@
 
 (defn buttify [app]
   (fn [request]
-    (println "got an request" (:uri request) request)
+    (println "got an request" (time/now) (:uri request) request)
     (let [{:keys (body) :as result} (dissoc (app (update-in request [:uri] debuttify-uri)) :cookies)]
       (assoc result :body (buttify-string request (when body (slurp body)))))))
 

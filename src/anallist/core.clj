@@ -54,7 +54,7 @@
 
 (defn buttify [app]
   (fn [request]
-    (println "got an request" (time/now) (:uri request) request)
+    (println (time/now) (:uri request) (-> request :headers "x-real-ip") (-> request :headers "user-agent"))
     (let [{:keys (body) :as result} (dissoc (app (update-in request [:uri] debuttify-uri)) :cookies)]
       (assoc result :body (buttify-string request (when body (slurp body)))))))
 

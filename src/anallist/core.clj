@@ -37,7 +37,6 @@
         (add-gregor-comment request))))
 
 (defn debuttify-uri [s]
-  (println "URI" s)
   (-> s
       (string/replace "uttcoin" "itcoin")
       (string/replace "runk" "runch")
@@ -54,6 +53,7 @@
 
 (defn buttify [app]
   (fn [request]
+    (println "got an request" (:uri request) request)
     (let [{:keys (body) :as result} (dissoc (app (update-in request [:uri] debuttify-uri)) :cookies)]
       (assoc result :body (buttify-string request (when body (slurp body)))))))
 

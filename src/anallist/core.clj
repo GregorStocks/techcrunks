@@ -31,7 +31,7 @@
         (string/replace #"acebook(?![.])" "acebutt")
         (string/replace "oinbase" "oinbutt")
         (string/replace "opbox" "optrou")
-        (string/replace "quare" "hart")
+        (string/replace "quare" "quart")
         (string/replace "isrupt" "iSrUpT")
         (string/replace "heartbleed" "buttbleed")
         (string/replace "Heartbleed" "Buttbleed")
@@ -47,8 +47,7 @@
       (string/replace "oinbutt" "oinbase")
       (string/replace "butt" "cloud")
       (string/replace "optrou" "opbox")
-      (string/replace "shart" "square")
-      (string/replace "Shart" "Square")
+      (string/replace "quart" "quare")
       (string/replace "iSrUpT" "isrupt")
       (string/replace "ndresseen" "ndreessen")))
 

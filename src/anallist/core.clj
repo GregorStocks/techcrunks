@@ -32,6 +32,8 @@
         (string/replace "oinbase" "oinbutt")
         (string/replace "opbox" "optrou")
         (string/replace "quare" "quart")
+        (string/replace "Google" "Hooli")
+        (string/replace "google" "hooli")
         (string/replace "isrupt" "iSrUpT")
         (string/replace "heartbleed" "buttbleed")
         (string/replace "Heartbleed" "Buttbleed")
@@ -49,6 +51,8 @@
       (string/replace "optrou" "opbox")
       (string/replace "quart" "quare")
       (string/replace "iSrUpT" "isrupt")
+      (string/replace "Hooli" "Google")
+      (string/replace "hooli" "google")
       (string/replace "ndresseen" "ndreessen")))
 
 (defn buttify [app]
